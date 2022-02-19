@@ -12,6 +12,10 @@ const searchController = require("./controllers/search.controller")
 
 const {login,register}= require("./controllers/auth.controller")
 
+const cors = require("cors");
+
+app.use(cors())
+
 app.use("/class", classController)
 
 app.use("/teacher",teacherController)
@@ -20,7 +24,7 @@ app.use("/search", searchController)
 
 app.post("/register", register); 
 
-app.post("/login", login);
+app.post("/login", login); 
 
 
 app.get("/", async (req,res)=>{
